@@ -10,9 +10,9 @@ import org.json.JSONObject;
 
 public class ShamirSecret {
 
-    // Large prime (you can increase size if needed)
+    // Prime field (small demo prime — can upgrade later)
     private static final BigInteger PRIME =
-            new BigInteger("104729"); // Example prime (can replace with larger one)
+            new BigInteger("104729");
 
     static class Point {
         BigInteger x;
@@ -24,14 +24,11 @@ public class ShamirSecret {
         }
     }
 
+    // 🔥 Runs BOTH testcases automatically
     public static void main(String[] args) throws Exception {
 
-        if (args.length == 0) {
-            System.out.println("Usage: java m1.ShamirSecret <jsonfile>");
-            return;
-        }
-
-        System.out.println("Recovered Secret: " + solve(args[0]));
+        System.out.println("Recovered Secret 1: " + solve("testcase1.json"));
+        System.out.println("Recovered Secret 2: " + solve("testcase2.json"));
     }
 
     public static BigInteger solve(String filePath) throws Exception {
